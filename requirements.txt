@@ -1,3 +1,2 @@
 sanic
-tortoise-orm
-sanic-auth
+sanic-openapi
