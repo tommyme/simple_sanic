@@ -2,9 +2,9 @@ from sanic import Sanic, Blueprint
 from sanic.response import text,json
 import sanic
 
-bp = Blueprint("my_blueprint")
+bp = Blueprint("sub", url_prefix='sub')
 
 
-@bp.route("/")
+@bp.route("/123")
 async def bp_root(request):
-    return json({"my": "blueprint"})
+    return json({"my": "sub"})

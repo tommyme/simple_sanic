@@ -1,7 +1,15 @@
 from sanic import Sanic
 from sanic.response import text
 import sanic
+
+from bp_root import bp
+from bp_sub import bp as bp_sub
 app = Sanic("hello")
+app.blueprint(bp)
+app.blueprint(bp_sub)
+
+
+
 
 @app.get("/get")    # query
 async def some_get(request: sanic.Request):
