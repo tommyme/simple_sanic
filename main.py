@@ -50,6 +50,17 @@ async def some_post(request: sanic.Request):
 async def some_put(request: sanic.Request):
     return text('put')
 
+@openapi.definition(
+    description="动态路由例子",
+    tag="ybw",
+    parameter=[
+        Parameter("post_id", str, "path", description="一个简单的path参数", required=True),
+    ],
+    response=Response({"application/json" : Test.schema()}, 200, description="一个简单的response")
+)
+@app.route('/posts/<post_id>')
+async def post_handler(request, post_id):
+    return text(post_id)
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8000, debug=True)
