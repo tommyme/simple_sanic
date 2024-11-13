@@ -1,3 +1,4 @@
 sanic
 tortoise-orm
 sanic-auth
+sanic-cors

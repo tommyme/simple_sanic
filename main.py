@@ -1,7 +1,10 @@
 from sanic import Sanic
 from sanic.response import text
 import sanic
+from sanic_cors import CORS
+
 app = Sanic("hello")
+CORS(app)
 
 @app.get("/get")    # query
 async def some_get(request: sanic.Request):
